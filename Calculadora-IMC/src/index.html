@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de IMC</title>
+    <meta name="author" content="Pedro Henrique Coimbra e Silva">
+    <meta name="description" content="O cálculo do IMC tem como objetivo auxiliar o usuário da apliação a melhorar
+                sua saúde.">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<div id="calculadora" class="light-blue">
+    <nav>
+        <div class="nav-wrapper light-blue" >
+            <a href="#" class="brand-logo right">{{ titulo }}</a>
+        </div>
+    </nav>
+    <div class="row light-blue lighten-3">
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">fitness_center</i>
+                    <input id="icon_prefix" type="text" class="validate" v-model="peso">
+                    <label for="icon_prefix">Peso em KG</label>
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">accessibility</i>
+                    <input id="icon_telephone" type="tel" class="validate" v-model="altura">
+                    <label for="icon_telephone">Altura em M</label>
+                </div>
+            </div>
+        </form>
+        <div class="center-align">
+            <a class="btn-floating btn-small waves-effect waves-light black" @click="calcularIMC">
+                <i class="material-icons">play_arrow</i>
+            </a>
+            <div class="section">
+                <div class="conatiner">
+                    <div class="row">
+                        <div class="s12 center-align">
+                            <h4 class="font-estilo text-whitesmoke">Índice de Massa Corporal</h4>
+                            <p class="animated fadeInDown"><a  class="btn-info waves-effect waves-light btn" :style="{'background-color': corSituacao}">{{ imc }}</a></a>
+                            <p class="animated fadeInDown"><a  class="btn-info waves-effect waves-light btn" :style="{'background-color': corSituacao}">{{ situacao }}</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+<!-- Instancia do Vue.js-->
+<script src="https://unpkg.com/vue"></script>
+
+<!-- Script local baseado em Vue-->
+<script src="./script/app.js"></script>
+
