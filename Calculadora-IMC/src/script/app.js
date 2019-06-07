@@ -11,11 +11,13 @@ new Vue({
     methods: {
         calcularIMC(){
             if(this.peso !== '' && this.altura !== '') {
-                let pesoInt = Number.parseFloat(this.peso.replace(",", "."))
-                let alturaInt = Number.parseFloat(this.altura.replace(",", "."))
-                let resultado = Number.parseFloat(pesoInt / (alturaInt * alturaInt)).toFixed(2)
+                let pesoInt = parseFloat(this.peso.replace(",", "."))
+                let alturaInt = parseFloat(this.altura.replace(",", "."))
+                let resultado = parseFloat(pesoInt / (alturaInt * alturaInt)).toFixed(2)
                 this.imc = resultado + ' IMC'
                 this.verificaSituacao(resultado)
+                this.peso = ''
+                this.altura = ''
                 return;
             }
             this.imc = 'Peso e Altura não digitados'
